@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>King's Blog--Countdown to Liberation</title>
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 48px;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    h1 {
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+    .countdown-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 60%;
+    }
+    .countdown-box {
+      background-color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      width: 25%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    .countdown-number {
+      font-size: 72px;
+    }
+    .countdown-label {
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <h1><a href="https://wxk.icu/">Enter</a></h1>
+
+  <div class="countdown-container">
+    <div class="countdown-box">
+      <div class="countdown-number" id="days"></div>
+      <div class="countdown-label">天</div>
+    </div>
+    <div class="countdown-box">
+      <div class="countdown-number" id="hours"></div>
+      <div class="countdown-label">时</div>
+    </div>
+    <div class="countdown-box">
+      <div class="countdown-number" id="minutes"></div>
+      <div class="countdown-label">分</div>
+    </div>
+    <div class="countdown-box">
+      <div class="countdown-number" id="seconds"></div>
+      <div class="countdown-label">秒</div>
+    </div>
+  </div>
+
+  <script>
+    // Set the date and time to count down to
+    var countDownDate = new Date("December 12, 2035 23:35:35").getTime();
+   
+    // Update the countdown every second
+    var x = setInterval(function() {
+
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Calculate the distance between now and the countdown date
+      var distance = countDownDate - now;
+
+      // Calculate remaining time components
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the remaining time in the HTML elements
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      // If the countdown is over, display a message
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("days").innerHTML = "0";
+        document.getElementById("hours").innerHTML = "0";
+        document.getElementById("minutes").innerHTML = "0";
+        document.getElementById("seconds").innerHTML = "0";
+      }
+    }, 1000); // Update every second
+  </script>
+</body>
+</html>
