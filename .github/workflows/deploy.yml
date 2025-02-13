@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "fed"
-          entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts"
+          entrypoint: "index.html"
           root: "build"
           
           
